@@ -1,13 +1,4 @@
-# quick binary number converter script in ruby
-# Add Two's complement representation logic next
-# Basic Two's complement logic:
-#   Start with dec number
-#   convert dec number into bin regardless of sign
-#   if dec number was negative iterate through bin number equivalent
-#   when first non zero binary bit is found, enter another loop
-#   for every bit in a position greater than the first non zero bit found,
-#   flip the digit using a case statement
-# -----------------
+# Quick binary number converter script in ruby
 
 # This Method will complete the two's complement process by adding 1
 def add_bit(working_arr, og_bin_arr) 
