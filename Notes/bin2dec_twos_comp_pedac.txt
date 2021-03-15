@@ -1,0 +1,91 @@
+This will be a PEDAC guide to turn a two's complement number back into
+a negative decimal number!
+
+Problem:
+description - Given a binary number, determine it's two's complement form. If the number
+is negative convert it back into a negative decimal number, if it is a positive number, 
+convert it back into it's positive equivalent. The program logic used should be able to take
+any length of binary digits up to 16 bits. If it goes past that any close the program.
+However, if there are less than 16 bits, fill in the remaining spaces before converting it.
+
+
+EXAMPLES/TEST CASES:
+
+input: 000010100
+output: 20 
+
+input: 1111111111101100
+output: -20
+
+input: 111101100
+output: 492
+
+input: 01
+output: 1
+
+input: 1111111111111111
+output: -1
+
+input: 2
+output: "Not a binary number"
+
+input: 11111111111111111111111111111111111111111111111111111111111
+output: "Number is too large!"
+
+
+DATA:
+integers, arrays, strings (for prompt) 
+
+ALGORITHM:
+binary number check
+
+main 
+1. Read binary number
+2. Split binary into an array
+3. iterate through binary,
+  -> if value in current index is less than 0 or more than 1 end program with nope!
+4. Call to check for twos complement form
+
+twos complement check
+5. Pass in user input and convert to array of integers 
+6. loop through og array
+  -> i.  break if length is 16  
+  -> ii. add a 0 to the beginning of the array
+7. call to check the sign bit at the beginning of array
+
+sign bit check
+8. pass in og array as argument 
+9. if value at first index of og array is 0
+  -> i. return '+' 
+10. else,
+  -> i. return '-'
+
+bin 2 dec conersion
+11. pass in og array and sign bit
+12. if sign bit returned '+',  
+  -> i. start bin_2_dec math
+  -> ii. return dec number
+13. else,
+  -> i. initialize working array with value within og array
+  -> ii. call bit flip and save value in binary array
+  -> iii. start bin_2_dec math
+  -> iiii. return dec number - double itself (it's negative)
+
+flip bits
+13. Pass the working array and og array as arguments
+14. Iterate through the working array by index
+  -> i. if value at current index is 0 reassign it to 1, else reassign it to 0. 
+15. call to add one bit to the working array 
+
+
+add bit
+16.  Pass the  working array, og array, as arguments
+17. Add one to the value in the last index of the working array 
+18. Iterate through array from 0 to length of the og binary array exclusively
+  -> i. if the "- current iteration - 1" index of the working array is greater than 1
+    -> a. add one to the "- current iteration - 2" index of the working array  
+    -> b. reassign the "- current iteration - 1" index of the working array to 0 
+19. Return Working array as new two's complement binary array
+
+CODE:
+will be in ruby

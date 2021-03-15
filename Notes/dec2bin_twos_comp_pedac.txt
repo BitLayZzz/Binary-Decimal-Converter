@@ -1,0 +1,75 @@
+This is a Quick PEDAC to try to better understand how to implement Two's Complement
+in my binary conversion program
+
+--------
+Problem
+--------
+Description: Two's Compliment is a form of representing Binary numbers which makes it easy
+to store both positive and negative numbers and to find the binary representation
+of the negation of a given number.
+
+What I have so far: I have user input that is passed into a method in the form of either 
+a binary number or a decimal number. Specifically with the decimal numbers, the user inputted
+integer passes through an algorithm that takes the remainder of the integer divided by 2,
+passes the remainder into an array to store the binary number, and divides the user inputted
+integer by 2. This process is repeated until the user integer = 0.
+
+The next step is to pass the new binary number in the form of an array, as well as the original
+decimal number, into a new method as parameters, to convert it to it's two's complement form.
+
+Main Problem: Within the new method, turn the binary array into a whole byte with 8 spaces, 
+and apply the logic to convert it to it's two's complement equivalent
+
+Steps:
+Gonna try and Use HtDF here
+signature: Base 10 number and binary number equivalent of positive in -> two's complement out
+produces: A two's complement number
+
+stub: def twos_complement(int, bin) 0000000000000000 end
+--------
+Examples/Test Cases
+--------
+input: 20
+output: 10100
+
+input: -20
+output: 1111111111101100
+
+input: 1
+output: 1
+
+input: -1, 1
+output: 1111111111111111
+
+----------------
+ints, floats arrays, strings (for prompt)
+
+---------
+Algroithm
+---------
+1. Pass in user input number and an array of binary equivalent of absolute value of user input
+2. initialize a working array that contains copy of og bin array
+3. loop through new working array
+ -> i.  add a 0 to the FRONT of the working array
+ -> ii. if working array length is 16, end loop
+5. if integer passed into method was negative, call to flip the bits else return working array 
+
+flip bits
+6. Pass the  working array and og array as arguments
+7. Iterate through the working array by index
+  -> i. if value at current index is 0 reassign it to 1, else reassign it to 0. 
+8. call to add one bit to the working array
+
+add bit
+9. Pass the  working array, og array, as arguments
+10. Add one to the value in the last index of the working array 
+11. Iterate through array from 0 to length of the og binary array inclusively
+  -> i. if the "- current iteration - 1" index of the working array is greater than 1
+    -> a. add one to the "- current iteration - 2" index of the working array  
+    -> b. reassign the "- current iteration - 1" index of the working array to 0 
+12. Return Working array as new two's complement binary array
+
+-----
+Code
+-----
+will be in ruby
