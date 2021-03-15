@@ -2,12 +2,13 @@
 
 # This Method will complete the two's complement process by adding 1
 def add_bit(working_arr, og_bin_arr) 
-
   working_arr[-1] += 1
 
   (0...og_bin_arr.length).each do |i| 
     if working_arr[-i - 1] > 1
+
       working_arr[-i - 2] += 1
+
       working_arr[-i - 1] = 0
     end
   end
@@ -17,7 +18,9 @@ end
 
 def bit_flip(working_arr, og_bin_arr)
   working_arr.each_index do |b|
+    
     working_arr[b] == 0 ? working_arr[b] = 1 : working_arr[b] = 0
+
   end
 
   twos_comp_arr = add_bit(working_arr, og_bin_arr)
@@ -32,6 +35,7 @@ def dec_twos_complement(og_bin_arr, og_num)
 
   loop do
     working_arr.prepend(0)
+
     break if working_arr.length == 16
   end
 
@@ -51,8 +55,11 @@ def dec_2_bin(num)
   
   loop do
     remainder = new_num % 2
+
     new_num = new_num / 2
+
     bin_arr.push(remainder)
+
     break if new_num == 0
   end
 
@@ -87,6 +94,7 @@ def bin_twos_complement(bin)
 
   loop do
     break if bin_arr.length >= 16
+
     bin_arr.unshift(0)
   end 
 
@@ -97,18 +105,20 @@ def bin_2_dec_math(bin_arr)
   new_num = 0
 
   bin_arr.each_with_index do |digit, position|
+
     new_num = new_num + (digit * (2 ** (bin_arr.length - (position + 1))))
+
   end
 
   new_num
 end
 
 def bin_2_dec(bin_arr, sign_bit)
-
   dec_num = 0
-  working_arr = Array.new(bin_arr) 
-  if sign_bit == '+'
 
+  working_arr = Array.new(bin_arr) 
+
+  if sign_bit == '+'
     dec_num = bin_2_dec_math(bin_arr)
     
     return dec_num
@@ -126,8 +136,11 @@ def bin_number?(num)
   num_split = num.to_s.split('')
 
   checked_num = num
+
   num_split.each do |digit|
+
     return -1 if digit.to_i < 0 || digit.to_i > 1 
+
   end
 
   checked_num.to_i
@@ -154,16 +167,15 @@ when 1
 
 when 2
   puts "Binary to Decimal"
-
   printf "=> Enter in a number:  "
 
   bin_num = gets.chomp.to_i
   
   binary_number_check = bin_number?(bin_num) 
+
   bin_arr = bin_twos_complement(bin_num)
   
   if binary_number_check < 0
-
     puts "Number is not a binary number..."
 
     sleep 1
