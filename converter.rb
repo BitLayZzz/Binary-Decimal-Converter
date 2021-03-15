@@ -1,6 +1,7 @@
 # Quick binary number converter script in ruby
 
-# This Method will complete the two's complement process by adding 1
+########### Two's Complement Logic ##########
+
 def add_bit(working_arr, og_bin_arr) 
   working_arr[-1] += 1
 
@@ -29,6 +30,7 @@ def bit_flip(working_arr, og_bin_arr)
 end
 
 ############# Decimal to Binary ############
+
 def dec_twos_complement(og_bin_arr, og_num)
   
   working_arr = Array.new(og_bin_arr)
@@ -75,9 +77,6 @@ def dec_2_bin(num)
 
   twos_comp_result
 end
-
-
-
 
 ########### Binary to Decimal ############
 
@@ -146,8 +145,8 @@ def bin_number?(num)
   checked_num.to_i
 end
 
-
 ############# Main ##############
+
 puts "=> Please choose (1 or 2)"
 puts "=> 1.) Decimal to Binary?"
 puts "=> 2.) Binary to Decimal?"
