@@ -70,6 +70,10 @@ def dec_2_bin(num)
 end
 
 
+
+
+########### Binary to Decimal ############
+
 def sign_bit?(og_arr)
   sign = ""
 
@@ -78,8 +82,6 @@ def sign_bit?(og_arr)
   sign
 end
 
-
-########### Binary to Decimal ############
 def bin_twos_complement(bin)
   bin_arr = bin.to_s.split('').map(&:to_i) 
 
@@ -133,7 +135,7 @@ end
 
 
 ############# Main ##############
-puts "=> Please choose..."
+puts "=> Please choose (1 or 2)"
 puts "=> 1.) Decimal to Binary?"
 puts "=> 2.) Binary to Decimal?"
 
