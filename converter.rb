@@ -1,4 +1,4 @@
-# Quick binary number converter script in ruby
+# Quic binary number converter script in ruby
 
 ########### Two's Complement Logic ##########
 
